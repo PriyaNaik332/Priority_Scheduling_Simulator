@@ -1,0 +1,208 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to left, #ff9966, #ff5e62);
+  margin: 0;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+.container {
+  padding: 30px;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to left, #ff9966, #ff5e62);
+  color: rgb(5, 0, 0);
+  min-height: 100vh;
+}
+
+h1, h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.form-section {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.process-button {
+  padding: 10px 20px;
+  margin: 5px;
+  color: white;
+  border-radius: 12px;
+  font-weight: bold;
+  display: inline-block;
+  animation: fadeIn 0.5s ease-in;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+/* Add more as needed */
+/* Slower & lasting animation */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1; /* Make sure it stays visible */
+  }
+}
+
+.ready-queue div,
+.gantt-chart div {
+  animation: bounceIn 1s ease forwards; /* Increased duration */
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ready-queue, .gantt-chart {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px;
+  border-radius: 16px;
+  min-height: 60px;
+  background-color: #f4f4f4;
+  border: 2px dashed #aaa;
+}
+
+input[type="text"], input[type="number"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 150px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.run-btn {
+  display: block;
+  margin: 20px auto;
+  font-size: 18px;
+  background-color: #28a745;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #ffffffaa;
+  border-radius: 10px;
+}
+
+th, td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.ready-queue-section, .gantt-section, .result-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #ffffffc4;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.description-card{
+  background-color: #e3af95;
+  border-radius: 20px;
+}
+
+.ready-queue {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  min-height: 60px;
+  border: 2px dashed #888;
+  border-radius: 12px;
+  background-color: #eefcff;
+  justify-content: flex-start;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.ready-queue div,
+.gantt-chart div {
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
+  animation: bounceIn 0.5s ease forwards;
+  opacity: 0;
+  min-width: 60px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Process Color Palette */
+.process-P1 { background-color: #007bff; }
+.process-P2 { background-color: #e91e63; }
+.process-P3 { background-color: #9c27b0; }
+.process-P4 { background-color: #009688; }
+.process-P5 { background-color: #ff5722; }
+.process-P6 { background-color: #3f51b5; }
+.process-P7 { background-color: #795548; }
+.process-P8 { background-color: #673ab7; }
+.process-P9 { background-color: #2196f3; }
+.process-P10 { background-color: #4caf50; }
+.process-Idle { background-color: gray; }
+
+/* Gantt Chart Styling */
+.gantt-chart {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+  background-color: #fff6e6;
+  border: 2px solid #ffa500;
+  border-radius: 10px;
+  scroll-behavior: smooth;
+}
+
+.process-button {
+  display: inline-block;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  animation: bounceIn 0.5s ease forwards;
+  opacity: 0;
+  min-width: 60px;
+  text-align: center;
+}
+

@@ -1,0 +1,112 @@
+<div class="container">
+  <h1>Non-Preemptive Priority Scheduling</h1>
+  <div class="description-card">
+  <h3>📘 How Non-Preemptive Priority Scheduling Works</h3>
+  <ul>
+    <li>Processes are selected based on <strong>priority</strong> (lower number = higher priority).</li>
+    <li>Only the processes that have <strong>arrived</strong> are considered at any time.</li>
+    <li>The CPU selects the highest priority process and runs it <strong>till completion</strong>.</li>
+    <li>If no process has arrived, the CPU remains <strong>idle</strong>.</li>
+    <li><strong>Completion Time (CT)</strong> = Time when the process finishes execution.</li>
+    <li><strong>Turnaround Time (TAT)</strong> = CT − Arrival Time.</li>
+    <li><strong>Waiting Time (WT)</strong> = TAT − Burst Time.</li>
+  </ul>
+</div>
+
+
+  <!-- Form -->
+  <div class="form-section">
+    <input [(ngModel)]="name" type ="text" placeholder="Process Name" />
+    <input [(ngModel)]="arrival" type="number" placeholder="Arrival Time" />
+    <input [(ngModel)]="burst" type="number" placeholder="Burst Time" />
+    <input [(ngModel)]="priority" type="number" placeholder="Priority (Lower is Higher)" />
+    <button (click)="addProcess()">Add Process</button>
+  </div>
+
+  <!-- Table -->
+  <table *ngIf="processes.length > 0">
+    <thead>
+      <tr>
+        <th>Process</th>
+        <th>Arrival</th>
+        <th>Burst</th>
+        <th>Priority</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of processes; let i = index">
+        <td>{{p.name}}</td>
+        <td>{{p.arrival}}</td>
+        <td>{{p.burst}}</td>
+        <td>{{p.priority}}</td>
+        <td><button (click)="remove(i)">🗑️</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button class="run-btn" (click)="simulate()">Run Simulation</button>
+<div class="ready-queue-section">
+  <h3>📥 Ready Queue</h3>
+  <div class="ready-queue">
+    <div
+      *ngFor="let block of readyQueueBlocks; let i = index"
+      class="process-button"
+      [ngClass]="'process-' + block.name"
+      [style.animationDelay]="(i * 0.7) + 's'"
+      style="opacity: 1;">
+      {{ block.name }}
+    </div>
+  </div>
+</div>
+
+<div class="gantt-section">
+  <h3>📊 Gantt Chart</h3>
+  <div class="gantt-chart">
+    <div
+      *ngFor="let block of ganttChart; let i = index"
+      class="process-button"
+      [ngClass]="'process-' + block.name"
+      [style.animationDelay]="(i * 0.8) + 's'"
+      style="opacity: 1;">
+      {{ block.name }}
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Results -->
+  <div class="result-section" *ngIf="showResults">
+    <h3>Process Results</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Process</th>
+          <th>Arrival Time</th>
+          <th>Burst Time</th>
+          <th>Priority</th>
+          <th>Completion Time</th>
+          <th>Waiting Time(TAT − Total Burst Time)</th>
+          <th>Turnaround Time(CT − Arrival Time)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of processes">
+          <td>{{ p.name }}</td>
+          <td>{{ p.arrival }}</td>
+          <td>{{ p.burst }}</td>
+          <td>{{ p.priority }}</td>
+          <td>{{ p.completion }}</td>
+          <td>{{ p.waiting }}</td>
+          <td>{{ p.turnaround }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="averages">
+      <p><strong>Average Waiting Time:</strong> {{ avgWT }}<br />
+      <strong>Average Turnaround Time:</strong> {{ avgTAT }}</p>
+    </div>
+  </div>
+</div>
